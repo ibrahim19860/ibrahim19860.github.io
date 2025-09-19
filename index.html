@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mohammed Ibrahim — Graduate Student & Software Engineer</title>
+  <meta name="description" content="Mohammed Ibrahim — Graduate student and software engineer. Portfolio featuring data-cleaning tools, object-detection projects, and more.">
+  <!-- Open Graph / Social preview suggestion -->
+  <meta property="og:title" content="Mohammed Ibrahim — Portfolio">
+  <meta property="og:description" content="Graduate student and software engineer. Projects: Data Cleaning Toolkit, Blind Assistance with Object Detection.">
+  <meta property="og:image" content="assets/social-preview.png"> <!-- optional -->
+  <meta name="theme-color" content="#0ea5a4">
+
+  <!-- Google Font: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Minimal reset + main CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicons (optional) -->
+  <link rel="icon" href="assets/favicon.ico">
+
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Homepage">Mohammed Ibrahim</a>
+
+      <nav class="nav" id="nav" aria-label="Main navigation">
+        <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-list">
+          <span class="sr-only">Toggle navigation</span>
+          ☰
+        </button>
+        <ul class="nav-list" id="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="cta" href="assets/resume.pdf" download>Download Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home" aria-labelledby="hero-heading">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1 id="hero-heading">Mohammed Ibrahim</h1>
+          <p class="title">Graduate Student • Software Engineer</p>
+          <p class="lead">Energetic and positive graduate student seeking an internship to apply specialized knowledge in software engineering and data science.</p>
+
+          <div class="hero-actions">
+            <a class="btn" href="#projects">See projects</a>
+            <a class="btn btn-outline" href="mailto:ibrahim.mohammed-1@ou.edu">Contact</a>
+          </div>
+
+          <ul class="social" aria-label="Social links">
+            <li><a href="https://github.com/ibrahim19860" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/mohammed-ibrahim-9800a226b" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+
+        <div class="hero-photo" aria-hidden="false">
+          <!-- Replace assets/profile.jpg with your photo. Recommended: 400x400 px, optimized -->
+          <img src="assets/profile.jpg" alt="Mohammed Ibrahim — profile photo" width="400" height="400">
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about" aria-labelledby="about-heading">
+      <div class="container">
+        <h2 id="about-heading">About</h2>
+        <p><strong>Mohammed Ibrahim</strong> is a graduate student and software engineer with experience building Python packages and computer-vision systems. He has worked on data cleaning tools and real-time object detection solutions to improve accessibility and automation.</p>
+        <p>Interests: Machine Learning, Data Engineering, Full-stack development, and building tools that make data more reliable and accessible.</p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <h2 id="skills-heading">Skills & Technologies</h2>
+        <ul class="skill-list" aria-label="Key skills">
+          <!-- list derived from resume defaults -->
+          <li>Python</li>
+          <li>Java</li>
+          <li>JavaScript (ES6+)</li>
+          <li>HTML5 &amp; CSS3</li>
+          <li>SQL</li>
+          <li>TensorFlow • PyTorch</li>
+          <li>OpenCV</li>
+          <li>AWS • GCP</li>
+          <li>pandas • NumPy</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <h2 id="projects-heading">Selected Projects</h2>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <article class="project-card">
+            <img class="project-thumb" src="assets/project1.png" alt="Screenshot of Data Cleaning Toolkit (project 1)">
+            <div class="project-body">
+              <h3>Data Cleaning Toolkit</h3>
+              <p class="project-desc">A Python package for automated data cleaning: missing-value handling, duplicate detection, outlier removal, and
