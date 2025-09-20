@@ -1,111 +1,908 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mohammed Ibrahim — Graduate Student & Software Engineer</title>
-  <meta name="description" content="Mohammed Ibrahim — Graduate student and software engineer. Portfolio featuring data-cleaning tools, object-detection projects, and more.">
-  <!-- Open Graph / Social preview suggestion -->
-  <meta property="og:title" content="Mohammed Ibrahim — Portfolio">
-  <meta property="og:description" content="Graduate student and software engineer. Projects: Data Cleaning Toolkit, Blind Assistance with Object Detection.">
-  <meta property="og:image" content="assets/social-preview.png"> <!-- optional -->
-  <meta name="theme-color" content="#0ea5a4">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibrahim Mohammed - Computer Science Graduate</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #6366f1;
+            --accent-color: #f59e0b;
+            --text-light: #a1a1aa;
+            --bg-light: #111827;
+            --bg-darker: #0f172a;
+            --card-bg: #1f2937;
+        }
 
-  <!-- Google Font: Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e5e7eb;
+            background: var(--bg-darker);
+        }
 
-  <!-- Minimal reset + main CSS -->
-  <link rel="stylesheet" href="css/style.css">
+        .hero-section {
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--primary-color) 50%, var(--secondary-color) 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
 
-  <!-- Favicons (optional) -->
-  <link rel="icon" href="assets/favicon.ico">
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            background-size: 50px 50px;
+            animation: float 20s infinite linear;
+        }
 
+        @keyframes float {
+            0% { transform: translateY(0px) translateX(0px); }
+            100% { transform: translateY(-100px) translateX(-100px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin: 0 auto 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            color: #e5e7eb;
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        .card {
+            border: 1px solid #374151;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            overflow: hidden;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.2);
+            border-color: var(--secondary-color);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            color: white;
+            border: none;
+            padding: 20px;
+        }
+
+        .card-body {
+            color: #d1d5db;
+            background: var(--card-bg);
+        }
+
+        .skill-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.2);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% + 10px);
+            background: linear-gradient(to bottom, var(--accent-color), transparent);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--card-bg), var(--bg-light));
+            border: 1px solid #374151;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item {
+            margin: 15px 0;
+            padding: 15px;
+            background: var(--bg-darker);
+            border: 1px solid #374151;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2);
+            border-color: var(--secondary-color);
+        }
+
+        .contact-item i {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+
+        .btn-custom {
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            color: white;
+        }
+
+        .achievement-badge {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 5px;
+            font-size: 0.9rem;
+            box-shadow: 0 3px 10px rgba(243, 156, 18, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 50px 0;
+            }
+            
+            .profile-img {
+                width: 150px;
+                height: 150px;
+                font-size: 3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
-  <header class="site-header" id="top">
-    <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Homepage">Mohammed Ibrahim</a>
-
-      <nav class="nav" id="nav" aria-label="Main navigation">
-        <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-list">
-          <span class="sr-only">Toggle navigation</span>
-          ☰
-        </button>
-        <ul class="nav-list" id="nav-list">
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a class="cta" href="assets/resume.pdf" download>Download Resume</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <!-- HERO -->
-    <section class="hero" id="home" aria-labelledby="hero-heading">
-      <div class="container hero-grid">
-        <div class="hero-text">
-          <h1 id="hero-heading">Mohammed Ibrahim</h1>
-          <p class="title">Graduate Student • Software Engineer</p>
-          <p class="lead">Energetic and positive graduate student seeking an internship to apply specialized knowledge in software engineering and data science.</p>
-
-          <div class="hero-actions">
-            <a class="btn" href="#projects">See projects</a>
-            <a class="btn btn-outline" href="mailto:ibrahim.mohammed-1@ou.edu">Contact</a>
-          </div>
-
-          <ul class="social" aria-label="Social links">
-            <li><a href="https://github.com/ibrahim19860" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/mohammed-ibrahim-9800a226b" target="_blank" rel="noopener">LinkedIn</a></li>
-          </ul>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(99, 102, 241, 0.2);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-code me-2"></i>Ibrahim Mohammed
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
         </div>
+    </nav>
 
-        <div class="hero-photo" aria-hidden="false">
-          <!-- Replace assets/profile.jpg with your photo. Recommended: 400x400 px, optimized -->
-          <img src="assets/profile.jpg" alt="Mohammed Ibrahim — profile photo" width="400" height="400">
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="hero-content text-center fade-in">
+                <div class="profile-img">
+    <img src="/Users/mohammedibrahim/Documents/USA(OU)/USA-all-docs/mohammedibrahimphoto.jpg" alt="Ibrahim Mohammed" class="img-fluid rounded-circle" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+</div>
+
+                <h1 class="display-4 fw-bold mb-3">Ibrahim Mohammed</h1>
+                <h3 class="mb-4">Computer Science Graduate Student</h3>
+                <p class="lead mb-4">To improve computer science knowledge and abilities, apply the information and experience acquired through university's famous graduate program, and create complicated projects with effectiveness and quality for the benefit of future generations of people and to make the world a better place to live.</p>
+                <div>
+                    <a href="#contact" class="btn-custom">
+                        <i class="fas fa-envelope me-2"></i>Get In Touch
+                    </a>
+                    <a href="https://linkedin.com/in/mohammed-ibrahim-9800a226b" class="btn-custom" target="_blank">
+                        <i class="fab fa-linkedin me-2"></i>LinkedIn
+                    </a>
+                    <a href="https://github.com/ibrahim19860" class="btn-custom" target="_blank">
+                        <i class="fab fa-github me-2"></i>GitHub
+                    </a>
+                </div>
+            </div>
+            
+
         </div>
-      </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section about" aria-labelledby="about-heading">
-      <div class="container">
-        <h2 id="about-heading">About</h2>
-        <p><strong>Mohammed Ibrahim</strong> is a graduate student and software engineer with experience building Python packages and computer-vision systems. He has worked on data cleaning tools and real-time object detection solutions to improve accessibility and automation.</p>
-        <p>Interests: Machine Learning, Data Engineering, Full-stack development, and building tools that make data more reliable and accessible.</p>
-      </div>
+    <!-- Areas of Interest Section -->
+    <section class="py-5" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Areas of Interest</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card fade-in">
+                        <div class="card-body text-center p-5">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="p-4 bg-light rounded-3 h-100">
+                                        <i class="fas fa-brain text-primary mb-3" style="font-size: 2rem;"></i>
+                                        <h5>Artificial Intelligence</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-4 bg-light rounded-3 h-100">
+                                        <i class="fas fa-chart-bar text-success mb-3" style="font-size: 2rem;"></i>
+                                        <h5>Data Science</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-4 bg-light rounded-3 h-100">
+                                        <i class="fas fa-robot text-info mb-3" style="font-size: 2rem;"></i>
+                                        <h5>Machine Learning</h5>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-4 bg-light rounded-3 h-100">
+                                        <i class="fas fa-cloud text-warning mb-3" style="font-size: 2rem;"></i>
+                                        <h5>Cloud Computing</h5>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="p-4 bg-light rounded-3">
+                                        <i class="fas fa-code text-danger mb-3" style="font-size: 2rem;"></i>
+                                        <h5>Advanced Software Development</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="section skills" aria-labelledby="skills-heading">
-      <div class="container">
-        <h2 id="skills-heading">Skills & Technologies</h2>
-        <ul class="skill-list" aria-label="Key skills">
-          <!-- list derived from resume defaults -->
-          <li>Python</li>
-          <li>Java</li>
-          <li>JavaScript (ES6+)</li>
-          <li>HTML5 &amp; CSS3</li>
-          <li>SQL</li>
-          <li>TensorFlow • PyTorch</li>
-          <li>OpenCV</li>
-          <li>AWS • GCP</li>
-          <li>pandas • NumPy</li>
-        </ul>
-      </div>
+    <!-- About Section -->
+    <section id="about" class="py-5" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>About Me</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card fade-in">
+                        <div class="card-body p-5">
+                            <p class="lead text-center">
+                                I am a passionate Computer Science graduate with a strong foundation in software development, 
+                                artificial intelligence, and cloud computing. My expertise spans from developing innovative 
+                                accessibility tools using cutting-edge AI technologies to creating comprehensive data science 
+                                solutions. I am dedicated to improving computer science knowledge and creating projects that 
+                                benefit future generations and make the world a better place to live.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section projects" aria-labelledby="projects-heading">
-      <div class="container">
-        <h2 id="projects-heading">Selected Projects</h2>
+    <!-- Education Section -->
+    <section id="education" class="py-5" style="background: var(--bg-darker);">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Education</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card fade-in">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-graduation-cap me-2"></i>Master's Degree</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="text-primary">Masters in Computer Science</h5>
+                            <p class="mb-2"><strong>University of Oklahoma, Norman</strong></p>
+                            <p class="text-muted mb-3">Expected May 2027</p>
+                            <div>
+                                <h6>Related Courses:</h6>
+                                <div class="mt-2">
+                                    <span class="skill-badge">Machine Learning</span>
+                                    <span class="skill-badge">Data Mining</span>
+                                    <span class="skill-badge">Cyber Security</span>
+                                    <span class="skill-badge">Database Systems</span>
+                                    <span class="skill-badge">Web Mining</span>
+                                    <span class="skill-badge">Operating Systems</span>
+                                    <span class="skill-badge">Statistics</span>
+                                    <span class="skill-badge">Information Retrieval</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card fade-in">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-university me-2"></i>Bachelor's Degree</h4>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="text-primary">Bachelor of Technology</h5>
+                            <p class="mb-2"><strong>Sreenidhi Institute of Science And Technology</strong></p>
+                            <p class="text-muted mb-3">Hyderabad, India • Aug 2021 – Jun 2025</p>
+                            <p class="mb-3">Electronics and Computer Engineering</p>
+                            <p class="mb-3"><strong>CGPA: 8.8/10</strong></p>
+                            <div class="achievement-badge mb-2">
+                                <i class="fas fa-trophy me-2"></i>Top 80% Merit Badge Scholarship
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <div class="projects-grid">
-          <!-- Project 1 -->
-          <article class="project-card">
-            <img class="project-thumb" src="assets/project1.png" alt="Screenshot of Data Cleaning Toolkit (project 1)">
-            <div class="project-body">
-              <h3>Data Cleaning Toolkit</h3>
-              <p class="project-desc">A Python package for automated data cleaning: missing-value handling, duplicate detection, outlier removal, and
+    <!-- Experience Section -->
+    <section id="experience" class="py-5" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Professional Experience</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="timeline-item fade-in">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="mb-0">Software Engineering Intern</h4>
+                                <p class="mb-0 text-light">Ltimindtree • Aug 2024 – Aug 2025</p>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled">
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Designed and implemented scalable software solutions using Java, Python, SQL, and RESTful APIs</li>
+                                    <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Optimized code and database interactions to improve performance and maintainability</li>
+                                    <li><i class="fas fa-check-circle text-success me-2"></i>Collaborated with a cross-functional team of 3 members using Agile and Git, successfully delivering end-to-end features on time</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item fade-in">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="mb-0">Associate Software Engineer</h4>
+                                <p class="mb-0 text-light">Amazon AWS Cloud Virtual Internship • Oct 2023 – Apr 2024</p>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-check-circle text-success me-2"></i>Designed and deployed cloud-based solutions using AWS services (EC2, S3, Lambda), focusing on scalability, security, and cost optimization</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5" style="background: var(--bg-darker);">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Academic Projects</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card fade-in">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-eye me-2"></i>Blind Assistance System</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Developed a real-time object detection system using Python, OpenCV, TensorFlow, and PyTorch to assist visually impaired individuals.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-camera text-primary me-2"></i>Real-time object detection using computer vision</li>
+                                <li><i class="fas fa-volume-up text-primary me-2"></i>Voice assistance with auditory feedback using pyttsx3</li>
+                                <li><i class="fas fa-universal-access text-primary me-2"></i>Enhanced accessibility and independence</li>
+                            </ul>
+                            <div class="mt-3">
+                                <span class="skill-badge">Python</span>
+                                <span class="skill-badge">OpenCV</span>
+                                <span class="skill-badge">TensorFlow</span>
+                                <span class="skill-badge">PyTorch</span>
+                                <span class="skill-badge">pyttsx3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card fade-in">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-database me-2"></i>Data Cleanser Toolkit</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Developed a Python package to automate data cleaning tasks, including handling missing values, outliers, and data normalization.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-cog text-primary me-2"></i>Automated data cleaning and preprocessing</li>
+                                <li><i class="fas fa-cog text-primary me-2"></i>User-friendly interface for data science applications</li>
+                                <li><i class="fas fa-cog text-primary me-2"></i>Improved data quality and efficiency</li>
+                                <li><i class="fas fa-cog text-primary me-2"></i>Enables focus on analysis and decision-making</li>
+                            </ul>
+                            <div class="mt-3">
+                                <span class="skill-badge">Python</span>
+                                <span class="skill-badge">Data Science</span>
+                                <span class="skill-badge">Machine Learning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card fade-in">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-warehouse me-2"></i>Inventory Management System</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Developed a comprehensive inventory management system to help control and track goods through the entire supply chain process.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-box text-primary me-2"></i>Track goods purchasing, processing, and selling</li>
+                                <li><i class="fas fa-chart-line text-primary me-2"></i>Real-time inventory monitoring</li>
+                                <li><i class="fas fa-database text-primary me-2"></i>Database management system integration</li>
+                            </ul>
+                            <div class="mt-3">
+                                <span class="skill-badge">Database Management</span>
+                                <span class="skill-badge">SQL</span>
+                                <span class="skill-badge">System Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card fade-in">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-globe me-2"></i>ECM Student Website</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>Designed and developed a full-fledged ECM student website with secure, user-friendly, and visually appealing interface.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-shield-alt text-primary me-2"></i>Secure authentication and data protection</li>
+                                <li><i class="fas fa-users text-primary me-2"></i>User-friendly interface design</li>
+                                <li><i class="fas fa-tools text-primary me-2"></i>Wide range of technologies utilized</li>
+                                <li><i class="fas fa-lock text-primary me-2"></i>Enhanced privacy and security measures</li>
+                            </ul>
+                            <div class="mt-3">
+                                <span class="skill-badge">Web Development</span>
+                                <span class="skill-badge">HTML5</span>
+                                <span class="skill-badge">CSS</span>
+                                <span class="skill-badge">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Technical Skills</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card fade-in">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-code me-2"></i>Programming Languages</h4>
+                        </div>
+                        <div class="card-body text-center">
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">Java</span>
+                            <span class="skill-badge">C#</span>
+                            <span class="skill-badge">.NET</span>
+                            <span class="skill-badge">C</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card fade-in">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-globe me-2"></i>Web Technologies</h4>
+                        </div>
+                        <div class="card-body text-center">
+                            <span class="skill-badge">HTML5</span>
+                            <span class="skill-badge">CSS</span>
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">Bootstrap</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card fade-in">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-layer-group me-2"></i>Frameworks</h4>
+                        </div>
+                        <div class="card-body text-center">
+                            <span class="skill-badge">Hibernate</span>
+                            <span class="skill-badge">Spring</span>
+                            <span class="skill-badge">Angular.js</span>
+                            <span class="skill-badge">Express.js</span>
+                            <span class="skill-badge">React</span>
+                            <span class="skill-badge">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card fade-in">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-database me-2"></i>Databases</h4>
+                        </div>
+                        <div class="card-body text-center">
+                            <span class="skill-badge">MySQL</span>
+                            <span class="skill-badge">SQL Server</span>
+                            <span class="skill-badge">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card fade-in">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-cloud me-2"></i>Cloud & Tools</h4>
+                        </div>
+                        <div class="card-body text-center">
+                            <span class="skill-badge">Azure</span>
+                            <span class="skill-badge">Amazon AWS</span>
+                            <span class="skill-badge">Git</span>
+                            <span class="skill-badge">Apache Tomcat</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card fade-in">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-tools me-2"></i>Development Tools</h4>
+                        </div>
+                        <div class="card-body text-center">
+                            <span class="skill-badge">Eclipse</span>
+                            <span class="skill-badge">Visual Studio</span>
+                            <span class="skill-badge">MySQL Workbench</span>
+                            <span class="skill-badge">Android Studio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="py-5" style="background: var(--bg-darker);">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Certifications</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card fade-in">
+                        <div class="card-body p-4">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center p-3 bg-gray-800 rounded shadow-sm" style="background: var(--bg-light) !important; border: 1px solid #374151;">
+                                        <i class="fab fa-java text-warning me-3 fs-4"></i>
+                                        <div>
+                                            <strong style="color: #e5e7eb;">Learn JAVA Programming</strong>
+                                            <br><small class="text-muted">Udemy - Beginner to Master</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center p-3 bg-gray-800 rounded shadow-sm" style="background: var(--bg-light) !important; border: 1px solid #374151;">
+                                        <i class="fas fa-code text-primary me-3 fs-4"></i>
+                                        <div>
+                                            <strong style="color: #e5e7eb;">C-LANGUAGE</strong>
+                                            <br><small class="text-muted">Galaxy Institute of Information Technology</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center p-3 bg-gray-800 rounded shadow-sm" style="background: var(--bg-light) !important; border: 1px solid #374151;">
+                                        <i class="fas fa-database text-info me-3 fs-4"></i>
+                                        <div>
+                                            <strong style="color: #e5e7eb;">The Complete SQL Bootcamp</strong>
+                                            <br><small class="text-muted">Udemy</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center p-3 bg-gray-800 rounded shadow-sm" style="background: var(--bg-light) !important; border: 1px solid #374151;">
+                                        <i class="fas fa-robot text-success me-3 fs-4"></i>
+                                        <div>
+                                            <strong style="color: #e5e7eb;">AICTE AI-ML Virtual Internship</strong>
+                                            <br><small class="text-muted">AICTE</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center p-3 bg-gray-800 rounded shadow-sm" style="background: var(--bg-light) !important; border: 1px solid #374151;">
+                                        <i class="fas fa-cloud text-secondary me-3 fs-4"></i>
+                                        <div>
+                                            <strong style="color: #e5e7eb;">AICTE CLOUD Virtual Internship</strong>
+                                            <br><small class="text-muted">AICTE</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center p-3 bg-gray-800 rounded shadow-sm" style="background: var(--bg-light) !important; border: 1px solid #374151;">
+                                        <i class="fas fa-network-wired text-danger me-3 fs-4"></i>
+                                        <div>
+                                            <strong style="color: #e5e7eb;">CCNA: Introduction to Networks</strong>
+                                            <br><small class="text-muted">Cisco</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="card fade-in">
+                        <div class="card-header">
+                            <h4 class="mb-0"><i class="fas fa-tools me-2"></i>Technologies & Tools</h4>
+                        </div>
+                        <div class="card-body text-center">
+                            <span class="skill-badge">Google Cloud Platform</span>
+                            <span class="skill-badge">AWS Cloud</span>
+                            <span class="skill-badge">Machine Learning</span>
+                            <span class="skill-badge">NLP</span>
+                            <span class="skill-badge">Deep Learning</span>
+                            <span class="skill-badge">Tableau</span>
+                            <span class="skill-badge">NumPy</span>
+                            <span class="skill-badge">Advanced SQL</span>
+                            <span class="skill-badge">MS Office</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities & Achievements Section -->
+    <section class="py-5" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Activities & Achievements</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card fade-in">
+                        <div class="card-body text-center p-5">
+                            <div class="mb-4">
+                                <div class="achievement-badge mb-3">
+                                    <i class="fas fa-user-friends me-2"></i>Graduate Student Ambassador
+                                    <br><small>Sreenidhi Institute of Science and Technology</small>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="achievement-badge">
+                                    <i class="fas fa-robot me-2"></i>Documentation Lead
+                                    <br><small>The Robotics Club of SNIST</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5" style="background: var(--bg-darker);">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="contact-info fade-in">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <strong>Email:</strong><br>
+                                    <a href="mailto:ibrahim.mohammed-1@ou.edu">ibrahim.mohammed-1@ou.edu</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <strong>Phone:</strong><br>
+                                    <a href="tel:405-209-2154">405-209-2154</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <strong>Location:</strong><br>
+                                    Norman, Oklahoma
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="contact-item">
+                                    <i class="fab fa-linkedin"></i>
+                                    <strong>LinkedIn:</strong><br>
+                                    <a href="https://linkedin.com/in/mohammed-ibrahim-9800a226b" target="_blank">Connect with me</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <a href="https://github.com/ibrahim19860" class="btn-custom" target="_blank">
+                                <i class="fab fa-github me-2"></i>View GitHub Profile
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4" style="background: var(--primary-color); color: white;">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 Mohammed Ibrahim. All rights reserved.</p>
+            <p class="mb-0 mt-2">Built with <i class="fas fa-heart text-danger"></i> using Bootstrap</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Update navbar on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(44, 62, 80, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(44, 62, 80, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
